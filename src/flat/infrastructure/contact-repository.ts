@@ -22,7 +22,7 @@ export class AddContactRepository implements CreateContact {
       const contact = new User(Nombre, Email, Telefono, Mensaje);
 
       const queue = "Contacto";
-      const message = JSON.stringify(contact); // Convertir el objeto music a una cadena JSON
+      const message = JSON.stringify(contact);
       console.log(message);
 
       try {
@@ -35,7 +35,6 @@ export class AddContactRepository implements CreateContact {
         const res = await channel.assertQueue(queue);
         console.log('Cola creada exitosamente', res);
 
-        // Insertar el mensaje en la cola
         await channel.sendToQueue(queue, Buffer.from(message));
 
         console.log(`Mensaje insertado en la cola: ${message}`);
@@ -48,7 +47,7 @@ export class AddContactRepository implements CreateContact {
 
       return contact;
     } catch (error) {
-      throw new Error(`No se pudo agregar la musica: ${error}`);
+      throw new Error(`No se pudo agregar el contacto: ${error}`);
     } finally {
     }
   }

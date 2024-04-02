@@ -2,11 +2,11 @@ import { createPool } from "../../mysql";
 import { User } from "../domain/User";
 import { ContactRepository } from "../domain/flat-repository";
 
-export class InMemoryMusicRepository implements ContactRepository {
+export class InMemoryContactRepository implements ContactRepository {
   async getAll(): Promise<User[]> {
-    console.log("Entered InMemoryMusicRepository getAll");
+    console.log("Entered InMemoryContactRepository getAll");
     const connection = await createPool();
-    const result: any[] = await connection.query("SELECT * FROM Musics");
+    const result: any[] = await connection.query("SELECT * FROM Contacto");
 
     if (result.length === 0) {
       return [];

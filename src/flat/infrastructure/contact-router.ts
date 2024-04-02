@@ -1,10 +1,10 @@
 import express from "express";
 
-import { musicController } from "./dependencies";
+import { contactController } from "./dependencies";
 import { PostContactController } from "./dependencies";
 
 const ContactRouter = express.Router();
-ContactRouter.get("/", musicController.getAllUsers.bind(musicController));
-ContactRouter.post("/", PostContactController.createMusic.bind(PostContactController));
+ContactRouter.get("/", contactController.getAllUsers.bind(contactController));
+ContactRouter.post("/", PostContactController.createContact.bind(PostContactController));
 
 export { ContactRouter };

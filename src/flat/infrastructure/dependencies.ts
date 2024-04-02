@@ -1,18 +1,18 @@
 import { PostContact } from "../aplication/CreateContact";
 import { GetAllUsers } from "../aplication/GetAllUseCase";
 import { CreateContactController } from "./createContact-controller";
-import { InMemoryMusicRepository } from "./createContactrepository";
-import { MusicController } from "./contact-controller";
+import { InMemoryContactRepository } from "./createContactrepository";
+import { ContactController } from "./contact-controller";
 import { AddContactRepository } from "./contact-repository";
 
-const musicRepository = new InMemoryMusicRepository();
-const getAllMusicsUseCase = new GetAllUsers(musicRepository);
-const musicController = new MusicController(getAllMusicsUseCase);
+const contactRepository = new InMemoryContactRepository();
+const getAllContactUseCase = new GetAllUsers(contactRepository);
+const contactController = new ContactController(getAllContactUseCase);
 
-export { getAllMusicsUseCase, musicController };
+export { getAllContactUseCase, contactController };
 
-const musicRepositor = new AddContactRepository();
-const createMusic = new PostContact(musicRepositor);
-const PostContactController = new CreateContactController(createMusic);
+const contactRepositor = new AddContactRepository();
+const createContact = new PostContact(contactRepositor);
+const PostContactController = new CreateContactController(createContact);
 
-export { createMusic, PostContactController };
+export { createContact, PostContactController };

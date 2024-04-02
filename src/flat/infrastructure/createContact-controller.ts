@@ -5,7 +5,7 @@ import { PostContact } from "../aplication/CreateContact";
 export class CreateContactController {
   constructor(private readonly postContact: PostContact) {}
 
-  async createMusic(req: Request, res: Response) {
+  async createContact(req: Request, res: Response) {
 
     const Nombre = req.body.Nombre;
     const Email = req.body.Email;

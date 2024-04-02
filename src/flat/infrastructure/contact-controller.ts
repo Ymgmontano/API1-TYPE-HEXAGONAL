@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 import { GetAllUsers } from "../aplication/GetAllUseCase";
 
-export class MusicController {
+export class ContactController {
   constructor(private readonly getAllUseCase: GetAllUsers) {}
 
   async getAllUsers(req: Request, res: Response) {
@@ -10,7 +10,7 @@ export class MusicController {
       const contact = await this.getAllUseCase.execute();
       res.status(200).send(contact);
     } catch (error) {
-      res.status(500).json({ error: "Failed to get musics" });
+      res.status(500).json({ error: "Failed to get contactos" });
     }
   }
 }
